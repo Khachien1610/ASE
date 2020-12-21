@@ -83,3 +83,98 @@
 .product-contact p:nth-child(5){
     font-size: 13px;
 }
+
+.shop-info{
+    color: #777;
+}
+
+.shop-info .shop-info__pre{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shop-info .shop-info__pre li a{
+    color: #777;
+}
+
+.shop-info .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #FFF;
+    color: #777;
+    font-weight: bold;
+    border-bottom: 3px solid #000;
+}
+
+.shop-info .nav-pills .nav-link {
+    border-radius: 0;
+}
+
+.shop-info__detail ul li{
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+footer{
+    background-color: #252525;
+    color: #acacac;
+    padding: 50px 50px 0 50px;
+}
+
+footer h6{
+    color: #fff;
+    margin-bottom: 47px;
+}
+
+footer p{
+    margin: 7px 0;
+    line-height: 30px;
+}
+
+.footer-name{
+    font-size: 30px;
+}
+
+footer a{
+    color: #acacac;
+}
+
+footer a:hover{
+    text-decoration: none;
+    color: #777;
+}
+
+.min-height{
+    min-height: 800px;
+}
+
+.card-info{
+    min-height: 178px;
+    position: relative;
+}
+
+.card-info .card-cart{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.card-info .card-cost{
+    position: absolute;
+    bottom: 55px;
+}
+
+.header-seacrh{
+    margin-right: 100px;
+}
+
+.header-seacrh input{
+    width: 300px !important;
+}
+
+.header-cart{
+    color: #28a745;
+    margin-right: 50px;
+}
+
+.header-cart:hover{
+    text-decoration: none;
+    color: #777;
+}

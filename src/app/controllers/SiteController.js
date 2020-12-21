@@ -6,7 +6,7 @@ const Account = require('../models/Account');
 const Customer = require('../models/Customer');
 
 
-const { multipleMongooseToObject } = require('../../ulti/mongoose');
+const { multipleMongooseToObject, mongooseToOject } = require('../../ulti/mongoose');
 
 var schema = new passwordValidator();
 schema 
@@ -186,13 +186,13 @@ class SiteController{
 
     // [GET] /infoaccount
     infoAccount(req, res, next){
-            Customer.findOne({ username: res.locals.username})
+        Customer.findOne({ idAccount: req.signedCookies.userId})
             .then( customer => {
-                res.render('customer/info',{
-                    customer,
-                    accountId: req.signedCookies.userId,
-                });
+                res.render('customers/edit',{
+                    customer: mongooseToOject(customer)
+                })
             })
+            .catch()
     }
     
 }

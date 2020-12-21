@@ -1,12 +1,7 @@
 const Product = require('../models/Product');
-const { mongooseToOject } = require('../../ulti/mongoose');
-const cloudinary = require('cloudinary').v2;
+const Provider = require('../models/Provider');
 
-cloudinary.config({
-    cloud_name: 'dtuy8d4mx',
-    api_key: '249383318227553',
-    api_secret: 'mkFi2WEMZzdcy-YVsWAJLkh8wao'
-});
+const { mongooseToOject, multipleMongooseToObject } = require('../../ulti/mongoose');
 
 class ProductController{
     // [GET] /products/:slug
@@ -22,7 +17,12 @@ class ProductController{
 
     // [GET] /products/create
     create(req, res, next) {
-       res.render('products/create');
+        Provider.find({})
+            .then( providers => {
+                res.render('products/create',{
+                    providers: multipleMongooseToObject(providers)
+                });    
+            })
     }
 
     // [POST] /products/store
@@ -53,11 +53,14 @@ class ProductController{
     // [GET] /products/:id/edit
     edit(req, res, next){
         Product.findOne({ _id: req.params.id })
-        .then((product) =>
+        .then( async (product) => {
+            var providers = await Provider.find({ name: {$ne: product.provider}})
+                .then( providers => providers)
             res.render('products/edit', {
                 product: mongooseToOject(product),
-            }),
-        )
+                providers: multipleMongooseToObject(providers)
+            });
+        })
         .catch();
     }
 

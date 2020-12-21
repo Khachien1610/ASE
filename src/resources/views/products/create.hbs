@@ -1,4 +1,4 @@
-<div class="mt-4 product__create">
+<div class="mt-4 min-height product__create">
     <h4 class="ml-3 d-inline py-2 px-3 bg-primary text-white">Sản phẩm</h4>
     <form action="/products/store" method="POST" class="col-3 mt-4" enctype="multipart/form-data">
         <div class="form-group">
@@ -11,12 +11,16 @@
         </div>
         <div class="form-group">
             <label for="description">Mô tả sản phẩm:</label>
-            <textarea name="description" style="resize: none;" class="form-control" id="description" cols="60" rows="8" placeholder="Mô tả sản phẩm..."></textarea>
+            <textarea name="description" style="resize: none;" class="form-control" id="description" cols="60" rows="8"
+                placeholder="Mô tả sản phẩm..."></textarea>
         </div>
-        <div class="form-group">
-            <label for="provider">Nhà cung cấp:</label>
-            <input type="text" name="provider" class="form-control" id="provider" placeholder="Nhà cung cấp...">
-        </div>
+        <p>Nhà cung cấp:</p>
+        <select class="custom-select custom-select-lg mb-3" name="provider" id="provider">
+            <option selected>Chọn nhà cung cấp</option>
+            {{#each providers}}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+        </select>
         <div class="form-group">
             <label for="cost">Giá sản phẩm:</label>
             <input type="text" name="cost" class="form-control" id="cost" placeholder="Nhập giá sản phẩm...">

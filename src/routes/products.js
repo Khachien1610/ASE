@@ -8,12 +8,12 @@ const ProductController = require('../app/controllers/ProductController');
 const RoleMiddleware = require('../app/middlewares/RoleMiddleware');
 const AuthMiddleware = require('../app/middlewares/AuthMiddleware');
 
-router.get('/create', ProductController.create); // CREATE
+router.get('/create',AuthMiddleware.auth, RoleMiddleware.admin, ProductController.create); // CREATE
 router.post('/store', upload.array('images', 5), ProductController.store);  
 
 router.get('/:slug', AuthMiddleware.authL, RoleMiddleware.roleL, ProductController.show); // READ
 
-router.get('/:id/edit', ProductController.edit); // UPDATE
+router.get('/:id/edit',AuthMiddleware.auth, RoleMiddleware.admin, ProductController.edit); // UPDATE
 router.put('/:id', upload.array('images', 5), ProductController.update);
 
 router.delete('/:id', ProductController.delete); // DELETE

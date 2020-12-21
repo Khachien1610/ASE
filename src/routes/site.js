@@ -16,7 +16,7 @@ router.post('/login', siteController.postLogin);
 
 router.get('/logout', siteController.logout);
 
-router.get('/infoaccount', siteController.infoAccount);
+router.get('/infoaccount', AuthMiddleware.auth, RoleMiddleware.roleL, siteController.infoAccount);
 
 
 router.get('/', AuthMiddleware.authL, RoleMiddleware.roleL, siteController.index);

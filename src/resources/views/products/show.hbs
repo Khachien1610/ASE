@@ -3,62 +3,60 @@
         <div class="col-5 img-navtabs">
             <div class="tab-content d-flex justify-content-center" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
-                    <img src="https://bucket.nhanh.vn/store/4902/ps/20201201/ddd66095fab80be652a9.jpg" alt=""
-                        class="img-fluid img-show">
+                    <img src="../{{ product.images.[0] }}" alt="" class="img-fluid img-show">
                 </div>
                 <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
-                    <img src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0537.jpg" alt=""
-                        class="img-fluid img-show">
+                    <img src="../{{ product.images.[1] }}" alt="" class="img-fluid img-show">
                 </div>
                 <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab"><img
-                        src="https://bucket.nhanh.vn/store/4902/ps/20201028/122606691_1689353327902174_7867104619647547370_o.jpg"
-                        alt="" class="img-fluid img-show">
+                        src="../{{ product.images.[2] }}" alt="" class="img-fluid img-show">
                 </div>
-                <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
-                    <img src="https://bucket.nhanh.vn/store/4902/ps/20201030/122725242_1690979404406233_7931575565704775806_o.jpg"
-                        alt="" class="img-fluid img-show">
+                {{#if product.images.[3] }}
+                <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab"><img
+                        src="../{{ product.images.[3] }}" alt="" class="img-fluid img-show">
                 </div>
+                {{/if}}
+                {{#if product.images.[4] }}
                 <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab"><img
-                        src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0814.jpg" alt=""
-                        class="img-fluid img-show">
+                        src="../{{ product.images.[4] }}" alt="" class="img-fluid img-show">
                 </div>
+                {{/if}}
             </div>
             <ul class="nav nav-pills mt-3 d-flex justify-content-center" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab"
                         aria-controls="pills-1" aria-selected="true" class="w-25 d-block">
-                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201201/ddd66095fab80be652a9.jpg" alt=""
-                            class="d-block img-tab">
+                        <img src="../{{ product.images.[0] }}" alt="" class="d-block img-tab">
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab"
                         aria-controls="pills-2" aria-selected="false">
-                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0537.jpg" alt=""
-                            class="d-block img-tab">
+                        <img src="../{{ product.images.[1] }}" alt="" class="d-block img-tab">
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab"
                         aria-controls="pills-3" aria-selected="false">
-                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201028/122606691_1689353327902174_7867104619647547370_o.jpg"
-                            alt="" class="d-block img-tab">
+                        <img src="../{{ product.images.[2] }}" alt="" class="d-block img-tab">
                     </a>
                 </li>
+                {{#if product.images.[3] }}
                 <li class="nav-item">
                     <a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#pills-4" role="tab"
                         aria-controls="pills-4" aria-selected="false">
-                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201030/122725242_1690979404406233_7931575565704775806_o.jpg"
-                            alt="" class="d-block img-tab">
+                        <img src="../{{ product.images.[3] }}" alt="" class="d-block img-tab">
                     </a>
                 </li>
+                {{/if}}
+                {{#if product.images.[4] }}
                 <li class="nav-item">
                     <a class="nav-link" id="pills-5-tab" data-toggle="pill" href="#pills-5" role="tab"
                         aria-controls="pills-5" aria-selected="false">
-                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0814.jpg" alt=""
-                            class="d-block img-tab">
+                        <img src="../{{ product.images.[4] }}" alt="" class="d-block img-tab">
                     </a>
                 </li>
+                {{/if}}
             </ul>
         </div>
         <div class="col-4 product-detail px-4">
@@ -95,6 +93,73 @@
                     <p>Thời gian làm việc:</p>
                     <p>8:00 - 18:00 (Thứ 2 đến CN)</p>
                     <p>9:00 - 18:00 (Ngày Lễ)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col px-5 mt-5 mb-5 shop-info">
+            <ul class="nav nav-pills mb-3 shop-info__pre" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active px-5" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                        aria-controls="pills-home" aria-selected="true">CHÍNH SÁCH ĐỔI TRẢ HÀNG</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-5" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                        aria-controls="pills-profile" aria-selected="false">THÔNG TIN VẬN CHUYỂN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-5" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                        aria-controls="pills-contact" aria-selected="false">BÌNH LUẬN</a>
+                </li>
+            </ul>
+            <div class="tab-content shop-info__detail" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <p class="font-italic font-weight-bold m-0"><u>1. Hàng hóa hư hại do vận chuyển, lỗi do nhà sản
+                            xuất:</u></p>
+                    <ul class="nav flex-column">
+                        <li>Khách hàng vui lòng báo đổi trong vòng 24 giờ sau khi khách hàng nhận hàng.</li>
+                        <li>Thời gian đổi hàng đối với nội thành là 24h kể từ khi báo đổi hàng, đối với ngoại thành thời
+                            gian đổi hàng từ 3-5 ngày tùy khu vực.</li>
+                        <li>Sau thời gian quy định, LYRA sẽ không hỗ trợ đổi trả hàng hóa vì bất kì trường hợp hay lý do
+                            nào khác.</li>
+                    </ul>
+                    <p class="font-italic font-weight-bold m-0"><u>2. Sản phẩm phải còn nguyên tình trạng ban đầu của
+                            nhà sản xuất:</u></p>
+                    <ul class="nav flex-column">
+                        <li>Hàng đổi trả phải còn nguyên tem mác của nhà sản xuất, chưa qua sử dụng, xử lý hóa chất như
+                            bột giặt, nước xả…</li>
+                    </ul>
+                    <p class="font-italic font-weight-bold m-0"><u>3. Lưu ý sản phẩm khi đổi trả:</u></p>
+                    <ul class="nav flex-column">
+                        <li>Lưu ý chỉ đổi hàng với sản phẩm nguyên giá. Đối với sản phẩm sale, chỉ hỗ trợ đổi hàng
+                            online. Và chỉ hỗ trợ đổi 1 lần/ đơn hàng.</li>
+                        <li>Phí vận chuyển hàng hóa khi đổi trả:</li>
+                        <li class="pl-5">+ Nhà sản xuất sẽ hỗ trợ phí ship 2 chiều.</li>
+                        <li class="pl-5">+ Những trường hợp khác KH chịu toàn bộ phí ship.</li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <p class="font-italic font-weight-bold m-0"><u>1. Ship hàng nội thành:</u></p>
+                    <ul class="nav flex-column">
+                        <li>Phí ship là 20k 1 đơn hàng trong nội thành Hà Nội ( bao gồm 9 quận nội thành)</li>
+                    </ul>
+                    <p class="font-italic font-weight-bold m-0"><u>2Đối với ship hàng ngoại tỉnh:</u></p>
+                    <ul class="nav flex-column">
+                        <li> Khách hàng ship COD phí ship là 40k/đơn hàng.</li>
+                        <li> Khách hàng chuyển khoản, thanh toán trước qua các dịch vụ Ibank thì phí ship là 25k/đơn
+                            hàng.</li>
+                    </ul>
+                    <p class="font-italic font-weight-bold m-0"><u>3. Ưu đãi :</u></p>
+                    <ul class="nav flex-column">
+                        <li>Đối với đơn hàng giá trị trên 1.500.000đ sẽ được freeship toàn quốc.</li>
+                        <li>Đơn hàng trên 2.000.000đ được giảm 5% đơn hàng và freeship toàn quốc. Các trường hợp khác
+                            liên hệ hotline để được tư vấn.</li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="fb-comments" data-href="https://www.facebook.com/lyrashop105" data-width="1000"
+                        data-numposts="2"></div>
                 </div>
             </div>
         </div>

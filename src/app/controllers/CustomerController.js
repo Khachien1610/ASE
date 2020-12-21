@@ -4,7 +4,7 @@ const { mongooseToOject } = require('../../ulti/mongoose');
 
 class CustomerController{
 
-    // [GET] /staffs/:id/edit
+    // [GET] /customers/:id/edit
     edit(req, res, next){
         Customer.findOne({ _id: req.params.id })
             .then((customer)=> {
@@ -14,7 +14,7 @@ class CustomerController{
             })
     }
 
-    // [PUT] /staffs/:id
+    // [PUT] /customers/:id
     async update(req, res, next){
         if(req.file){
             var file = req.file.path.split('\\').slice(3).join('\/');
