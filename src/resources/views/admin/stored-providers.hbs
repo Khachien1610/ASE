@@ -1,0 +1,98 @@
+<div class="mt-4">
+    <div class="mb-4 d-flex justify-content-between align-items-center pr-5">
+        <div class="d-flex align-items-center">
+            <h3>Danh sách nhà cung cấp</h3>
+            <a href="/providers/create" class="btn btn-outline-primary ml-5">Thêm nhà cung cấp</a>
+        </div>
+        {{#if deletedCount}}
+        <a href="/admin/trash/providers" class="text-decoration-none">
+            <i class="fa fa-trash-alt"></i>
+            Thùng rác ({{deletedCount}})
+        </a>
+        {{/if}}
+    </div>
+    <table class="table table-hover border text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tên nhà cung cấp</th>
+                <th scope="col">Số điện thoại</th>
+                <th scope="col">Email</th>
+                <th scope="col">Địa chỉ</th>
+                <th scope="col">Thời gian tạo</th>
+                <th scope="col">Thời gian sửa</th>
+                <th scope="col">Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each providers}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>
+                    <a href="/providers/{{this._id}}/edit">{{this.name}}</a>
+                </td>
+                <td>{{this.phone}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.createdAt}}</td>
+                <td>{{this.updatedAt}}</td>
+                <td>
+                    <a href="#" class="btn btn-link text-danger" data-id="{{this._id}}" data-toggle="modal"
+                        data-target="#delete-account-modal"><i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="8" class="text-center">
+                    Không có nhà cung cấp nào.
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-account-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xóa tài khoản?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn chắc chắn muốn xóa tài khoản này?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btn-delete-account">Xóa tài khoản</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Form hidden delete --}}
+<form name="delete-account-modal" method="POST"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var providerId;
+        var deleteForm = document.forms['delete-account-modal'];
+        var btnDeleteAccount = document.getElementById('btn-delete-account');
+
+        $('#delete-account-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            providerId = button.data('id');
+        });
+
+
+        btnDeleteAccount.onclick = function () {
+            deleteForm.action = '/providers/' + providerId + '?_method=DELETE';
+            deleteForm.submit();
+        }
+    });
+
+</script>

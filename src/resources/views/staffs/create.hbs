@@ -1,0 +1,54 @@
+<div class="pt-5">
+    <div class="m-auto w-50">
+        <h1 class="text-center">Thêm nhân viên</h1>
+        <form class="col-6 m-auto" action="" method="POST">
+            <div class="form-group">
+                <label for="name">Họ tên
+                    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right"
+                        title="Họ tên của bạn là gì?">
+                    </i>
+                </label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Nhập họ tên">
+            </div>
+            <div class="form-group">
+                <label for="email">Email
+                    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right"
+                        title="Bạn sẽ sử dụng thông tin này khi cần đặt lại mật khẩu.">
+                    </i>
+                </label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Nhập email">
+            </div>
+            <div class="form-group">
+                <label for="username">Tên tài khoản
+                    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right"
+                        title="Bạn sẽ sử dụng thông tin này khi đăng nhập.">
+                    </i>
+                </label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Nhập tên tài khoản">
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu
+                    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right"
+                        title="Nhập mật khẩu có tối thiểu 6 ký tự bao gồm số, chữ cái và không chứa dấu cách.">
+                    </i>
+                </label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Nhập mật khẩu">
+            </div>
+            <div class="form-check form-check-inline border rounded py-1 px-2">
+                <label class="form-check-label mr-2" for="nam">Nam</label>
+                <input class="form-check-input" type="radio" name="gender" id="nam" value="Nam">
+            </div>
+            <div class="form-check form-check-inline mb-3 border rounded py-1 px-2">
+                <label class="form-check-label mr-2" for="nu">Nữ</label>
+                <input class="form-check-input" type="radio" name="gender" id="nu" value="Nữ">
+            </div>
+            {{#if errors}}
+            {{#each errors}}
+            <small class="form-text alert alert-danger py-2 mb-3">{{this}}</small>
+            {{/each}}
+            {{/if}}
+
+            <button type="submit" class="btn btn-success d-block m-auto px-5 py-2 font-weight-bold">Thêm nhân viên</button>
+        </form>
+    </div>
+</div>

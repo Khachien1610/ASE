@@ -1,0 +1,85 @@
+.detail__img{
+    width: 60%; 
+    height: auto;
+}
+
+.image-hidden{
+    overflow: hidden;
+}
+
+.image-hover{
+    transition: all 0.5s;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: none;
+    outline: none;
+}
+
+.wrap-image:hover .image-hover{
+    transform: scale(1.05);
+}
+
+.table td, .table th{
+    vertical-align: middle;
+}
+
+.product__create h4, 
+.product__edit h4{
+    text-transform: uppercase;
+    border-bottom: 3px solid black;
+}
+
+.img-navtabs .img-tab{
+    width: 100px;
+    height: 150px;
+}
+
+.img-navtabs .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #FFF;
+}
+
+.img-navtabs .img-show{
+    width: 400px;
+    height: 600px;
+}
+
+.text-description{
+    font-size: 14px;
+}
+
+.product-detail__description{
+    height: 250px;   
+    overflow: hidden;
+}
+
+.product-detail .text-sale{
+    font-size: 20px;
+}
+
+.product-detail button{
+    width: 45%;
+}
+
+.product-contact {
+    background: #f3f2f2;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 5px;
+    color: #777;
+}
+
+.product-contact p:nth-child(1){
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.product-contact p:nth-child(2){
+    font-size: 14px;
+}
+
+.product-contact p:nth-child(3),
+.product-contact p:nth-child(4),
+.product-contact p:nth-child(5){
+    font-size: 13px;
+}

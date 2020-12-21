@@ -1,0 +1,17 @@
+<div class="mt-5 d-flex align-items-center flex-column">
+    <h1>Đăng nhập</h1>
+    <form class="col-3 mt-3" action="/login" method="POST">
+        <div class="form-group">
+            <label for="username">Tên tài khoản:</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Nhập tên tài khoản">
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Nhập mật khẩu">
+        </div>
+        {{#if error}}
+        <small class="form-text alert alert-danger py-2 mb-3">{{error}}</small>
+        {{/if}}
+        <button type="submit" class="btn btn-success d-block m-auto px-5 py-2 font-weight-bold">Đăng nhập</button>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+<div class="mt-4 product__edit">
+    <h4 class="ml-3 d-inline py-2 px-3 bg-primary text-white">Sửa thông tin sản phẩm</h4>
+
+    <form action="/products/{{product._id}}?_method=PUT" method="POST" class="col-3 mt-4" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" name="name" value="{{product.name}}" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="images">Ảnh:</label>
+            <input type="file" class="form-control-file" id="images" name="images" multiple>
+        </div>
+        <div class="form-group">
+            <label for="description">Mô tả sản phẩm:</label>
+            <textarea name="description" style="resize: none;" id="description" cols="60" rows="6"
+                class="form-control">{{product.description}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="provider">Nhà cung cấp:</label>
+            <input type="text" name="provider" value="{{product.provider}}" class="form-control" id="provider">
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="cost">Giá sản phẩm:</label>
+                    <input type="text" name="cost" value="{{product.cost}}" class="form-control" id="cost">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="sale">Sale:</label>
+                    <input type="text" name="sale" value="{{product.sale}}" class="form-control" id="sale">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="updateReason">Lý do cập nhập:</label>
+            <input type="text" name="updateReason" value="{{product.updateReason}}" class="form-control" id="updateReason">
+        </div>
+        <div class="form-group">
+            <label for="saleReason">Lý do cập nhập:</label>
+            <input type="text" name="saleReason" value="{{product.saleReason}}" class="form-control" id="saleReason">
+        </div>
+        <button type="submit" class="btn btn-success">Lưu lại</button>
+    </form>
+</div>

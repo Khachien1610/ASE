@@ -1,0 +1,26 @@
+<div class="mt-4 product__create">
+    <h4 class="ml-3 d-inline py-2 px-3 bg-primary text-white">Sản phẩm</h4>
+    <form action="/products/store" method="POST" class="col-3 mt-4" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Tên sản phẩm:</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Nhập tên của sản phẩm...">
+        </div>
+        <div class="form-group">
+            <label for="images">Ảnh:</label>
+            <input type="file" class="form-control-file" id="images" name="images" multiple>
+        </div>
+        <div class="form-group">
+            <label for="description">Mô tả sản phẩm:</label>
+            <textarea name="description" style="resize: none;" class="form-control" id="description" cols="60" rows="8" placeholder="Mô tả sản phẩm..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="provider">Nhà cung cấp:</label>
+            <input type="text" name="provider" class="form-control" id="provider" placeholder="Nhà cung cấp...">
+        </div>
+        <div class="form-group">
+            <label for="cost">Giá sản phẩm:</label>
+            <input type="text" name="cost" class="form-control" id="cost" placeholder="Nhập giá sản phẩm...">
+        </div>
+        <button type="submit" class="btn btn-success">Thêm sản phẩm</button>
+    </form>
+</div>

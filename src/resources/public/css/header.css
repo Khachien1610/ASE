@@ -1,0 +1,38 @@
+.navbar{
+    background-color: #f2f2f2 !important;
+}
+
+.navbar .navbar__item{
+    padding: 10px 30px;
+    color: #484848;
+    border-radius: 3px;
+    transition:all .5s;
+    margin: 0;
+    font-weight: 600;
+}
+
+.navbar .navbar__item:hover{
+    color: #007bff;
+}
+
+.navbar-nav .dropdown-menu{
+    left: -200px;
+}
+
+.avatar__user{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.navbar-admin{
+    background-color:#2196f3 !important;
+}
+
+.navbar-admin .navbar__item{
+    color: #FFF;
+}
+
+.navbar-admin .navbar__item:hover{
+    color: #484848;
+}

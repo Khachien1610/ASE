@@ -1,0 +1,33 @@
+<div class="mt-4 product__edit">
+    <h4 class="ml-3 d-inline py-2 px-3 bg-primary text-white">Thông tin của {{staff.name}}</h4>
+
+    <form action="/staffs/{{staff._id}}?_method=PUT" method="POST" class="col-3 mt-4" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Tên:</label>
+            <input type="text" name="name" value="{{staff.name}}" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="image">Ảnh đại diện:</label>
+            <input type="file" class="form-control-file" id="image" name="image">
+        </div>
+        <p class="my-2">Giới tính: <span class="ml-2">{{staff.gender}}</span></p>
+        <div class="form-group">
+            <label for="birthday">Ngày sinh:</label>
+            <input type="date" name="birthday" value="{{staff.birthday}}" class="form-control" id="birthday">
+        </div>
+        <div class="form-group">
+            <label for="phone">Số điện thoại:</label>
+            <input type="text" name="phone" value="{{staff.phone}}" class="form-control" id="phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="{{staff.email}}" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="address">Địa chỉ:</label>
+            <textarea name="address" style="resize: none;" class="form-control" id="address" cols="60" rows="3"
+                placeholder="">{{staff.address}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Lưu lại</button>
+    </form>
+</div>

@@ -1,0 +1,102 @@
+<div class="mt-4">
+    <div class="row">
+        <div class="col-5 img-navtabs">
+            <div class="tab-content d-flex justify-content-center" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+                    <img src="https://bucket.nhanh.vn/store/4902/ps/20201201/ddd66095fab80be652a9.jpg" alt=""
+                        class="img-fluid img-show">
+                </div>
+                <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+                    <img src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0537.jpg" alt=""
+                        class="img-fluid img-show">
+                </div>
+                <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab"><img
+                        src="https://bucket.nhanh.vn/store/4902/ps/20201028/122606691_1689353327902174_7867104619647547370_o.jpg"
+                        alt="" class="img-fluid img-show">
+                </div>
+                <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
+                    <img src="https://bucket.nhanh.vn/store/4902/ps/20201030/122725242_1690979404406233_7931575565704775806_o.jpg"
+                        alt="" class="img-fluid img-show">
+                </div>
+                <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab"><img
+                        src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0814.jpg" alt=""
+                        class="img-fluid img-show">
+                </div>
+            </div>
+            <ul class="nav nav-pills mt-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab"
+                        aria-controls="pills-1" aria-selected="true" class="w-25 d-block">
+                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201201/ddd66095fab80be652a9.jpg" alt=""
+                            class="d-block img-tab">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab"
+                        aria-controls="pills-2" aria-selected="false">
+                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0537.jpg" alt=""
+                            class="d-block img-tab">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab"
+                        aria-controls="pills-3" aria-selected="false">
+                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201028/122606691_1689353327902174_7867104619647547370_o.jpg"
+                            alt="" class="d-block img-tab">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#pills-4" role="tab"
+                        aria-controls="pills-4" aria-selected="false">
+                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201030/122725242_1690979404406233_7931575565704775806_o.jpg"
+                            alt="" class="d-block img-tab">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-5-tab" data-toggle="pill" href="#pills-5" role="tab"
+                        aria-controls="pills-5" aria-selected="false">
+                        <img src="https://bucket.nhanh.vn/store/4902/ps/20201125/capture0814.jpg" alt=""
+                            class="d-block img-tab">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-4 product-detail px-4">
+            <div class="card border-secondary mb-4">
+                <h3 class="card-header bg-secondary text-white text-center">THÔNG TIN SẢN PHẨM</h3>
+                <div class="card-body pb-2">
+                    <h5 class="cart-title mb-3">{{ product.name }}</h5>
+                    <p class="card-text">Giá: <b> {{ product.cost }} </b>VNĐ</p>
+                    <p class="card-text">Nhà cung cấp: <b> {{ product.provider }} </b></p>
+                    <p class="card-text text-right font-weight-bold text-danger text-sale">Sale: <span> {{ product.sale
+                            }} </span>%</p>
+                </div>
+            </div>
+            <div class="card product-detail__description" style="padding: 20px;">
+                <h5 class="card-title">Mô tả sản phẩm:</h5>
+                <p class="cart-text font-italic text-muted text-description">{{ product.description }}</p>
+            </div>
+            <form action="/products/store" method="POST" class="mt-3 d-flex justify-content-around">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-cart-plus"></i>
+                    THÊM VÀO GIỎ
+                </button>
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-shopping-cart"></i>
+                    MUA HÀNG
+                </button>
+            </form>
+        </div>
+        <div class="col-3">
+            <div class="col">
+                <div class="product-contact pt-4">
+                    <p>BẠN CẦN TRỢ GIÚP?</p>
+                    <p>HÃY LIÊN HỆ: 012.3456.789</p>
+                    <p>Thời gian làm việc:</p>
+                    <p>8:00 - 18:00 (Thứ 2 đến CN)</p>
+                    <p>9:00 - 18:00 (Ngày Lễ)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

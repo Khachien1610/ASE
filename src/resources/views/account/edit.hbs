@@ -1,0 +1,22 @@
+<div class="mt-4 product__edit">
+    <h4 class="ml-3 d-inline py-2 px-3 bg-primary text-white">ĐỔI MẬT KHẨU</h4>
+
+    <form action="/accounts/{{account._id}}/password/edit" method="POST" class="col-2 mt-4">
+        <div class="form-group">
+            <label for="passwordOld">Mật khẩu cũ:</label>
+            <input type="password" name="passwordOld" class="form-control" id="passwordOld">
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu mới
+                <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right"
+                    title="Nhập mật khẩu có tối thiểu 6 ký tự bao gồm số, chữ cái và không chứa dấu cách.">
+                </i>
+            </label>
+            <input type="password" name="password" class="form-control" id="password">
+        </div>
+        {{#if errors}}
+        <small class="form-text alert alert-danger py-2 mb-3">{{errors}}</small>
+        {{/if}}
+        <button type="submit" class="btn btn-success">Đổi mật khẩu</button>
+    </form>
+</div>

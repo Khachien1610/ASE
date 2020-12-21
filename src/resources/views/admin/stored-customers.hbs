@@ -1,0 +1,41 @@
+<div class="mt-4">
+    <div class="mb-4 d-flex justify-content-between align-items-center pr-5">
+        <div class="d-flex align-items-center">
+            <h3>Danh sách khách hàng</h3>
+        </div>
+    </div>
+    <table class="table table-hover border text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tên khách hàng</th>
+                <th scope="col">Giới tính</th>
+                <th scope="col">Số điện thoại</th>
+                <th scope="col">Email</th>
+                <th scope="col">Địa chỉ</th>
+                <th scope="col">Điểm tích lũy</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each customers}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>
+                    <a href="/customers/{{this._id}}/edit">{{this.name}}</a>
+                </td>
+                <td>{{this.gender}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.point}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="7" class="text-center">
+                    Không có khách hàng nào.
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
