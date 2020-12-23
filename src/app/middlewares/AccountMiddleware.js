@@ -25,12 +25,14 @@ class AccountMiddleware{
 
     async count(req, res, next){
         var cart =  await Cart.findOne({ sessionId: req.signedCookies.sessionId })
-        .then( cart => cart )
+            .then( cart => cart )
         if(cart){
             cart = mongooseToOject(cart);
             var count = 0;
             for(const c of cart.cart){
-                count += c.count;
+                if(c){
+                    count += c.count;
+                }   
             }
             res.locals.count = count;
         }

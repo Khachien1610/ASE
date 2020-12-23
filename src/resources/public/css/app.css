@@ -175,11 +175,41 @@ footer a:hover{
     color: #777;
 }
 
-.product-detail form{
+.product-detail form,
+.product-detail .product-order
+{
     width: 50%;
     margin-top: 20px;
 }
 
 .product-detail button{
     width: 97%;
+}
+
+.product-detail a{
+    display: inline-block;
+    width: 97%;
+}
+
+.form-cart .form-buy{
+    width: 250px;
+    background-color: #f1f1f1;
+    border: 1px solid #ebebeb;
+    color: #252525;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.form-cart .form-order{    
+    width: 500px;
+    background: #252525;
+    color: #f1f1f1;
+    border: 1px solid #252525;
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.form-cart .btn.focus, .btn:focus{
+    box-shadow: none;
 }

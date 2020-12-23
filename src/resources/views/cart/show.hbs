@@ -5,8 +5,10 @@
             <tr>
                 <th>STT</th>
                 <th>Tên sản phẩm</th>
-                <th>Giá</th>
+                <th>Đơn giá</th>
+                <th>Giảm giá</th>
                 <th>Số lượng</th>
+                <th>Thành tiền</th>
                 <th>Xóa</th>
             </tr>
         </thead>
@@ -20,6 +22,7 @@
                     </a>
                 </td>
                 <td>{{ this.cost }} VNĐ</td>
+                <td>{{ this.sale }} %</td>
                 <td>
                     <a href="/cart/{{ this.id }}/down">
                         <i class="fa fa-chevron-down"></i>
@@ -29,13 +32,14 @@
                         <i class="fa fa-chevron-up"></i>
                     </a>
                 </td>
+                <td>{{ this.afterSale }} VNĐ</td>
                 <td>
-                    <a href="/cart/{{ this.id }}/:delete"><i class="fa fa-times text-danger"></i></a>
+                    <a href="/cart/{{ this.id }}/delete"><i class="fa fa-times text-danger"></i></a>
                 </td>
             </tr>
             {{else}}
             <tr>
-                <td colspan="4" class="text-center">
+                <td colspan="7" class="text-center">
                     Không có sản phẩm nào trong giỏ hàng.
                     <a href="/"> Quay lại cửa hàng để tiếp tục mua sắm.</a>
                 </td>
@@ -43,4 +47,21 @@
             {{/each}}
         </tbody>
     </table>
+    {{#if sum}}
+    <h5 class="text-right">
+        <span class="text-muted">Tổng tiền:</span>
+        <span class="ml-3 text-danger">{{ this.sum }} VNĐ</span>
+    </h5>
+    {{/if}}
+    <div class="d-flex justify-content-end form-cart mt-3">
+        <a href="/" class="btn form-buy">Tiếp tục mua hàng</a>
+        {{#if count}}
+        <a href="/cart/checkout" class="btn form-order ml-5">Tiến hành đặt hàng</a>
+        {{else}}
+        <a href="/cart/checkout" class="btn form-order ml-5 disabled">Tiến hành đặt hàng</a>
+        {{/if}}
+    </div>
+    {{#if error}}
+    <p class="text-danger text-right mt-3 font-italic">{{ this.error }}</p>
+    {{/if}}
 </div>
