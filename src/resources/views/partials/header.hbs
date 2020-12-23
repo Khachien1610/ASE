@@ -49,9 +49,12 @@
     <input class="form-control mr-sm-2" type="search" placeholder="Thông tin cần tìm kiếm ..." aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
-  <a href="#" class="header-cart">
+  <a href="/cart" class="header-cart">
     <i class="fa fa-shopping-cart"></i>
     Giỏ hàng
+    {{#if count}}
+    ({{count}})
+    {{/if}}
   </a>
 </nav>
 {{/if}}

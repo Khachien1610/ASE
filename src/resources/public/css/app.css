@@ -57,10 +57,6 @@
     font-size: 20px;
 }
 
-.product-detail button{
-    width: 45%;
-}
-
 .product-contact {
     background: #f3f2f2;
     padding: 10px 15px;
@@ -177,4 +173,13 @@ footer a:hover{
 .header-cart:hover{
     text-decoration: none;
     color: #777;
+}
+
+.product-detail form{
+    width: 50%;
+    margin-top: 20px;
+}
+
+.product-detail button{
+    width: 97%;
 }

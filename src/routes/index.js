@@ -5,6 +5,7 @@ const accountsRouter = require('./accounts');
 const staffRouter = require('./staffs');
 const customerRouter = require('./customer');
 const providerRouter = require('./provider');
+const cartRouter = require('./cart');
 
 const AuthMiddleware = require('../app/middlewares/AuthMiddleware');
 const RoleMiddleware = require('../app/middlewares/RoleMiddleware');
@@ -15,7 +16,7 @@ function route(app){
 
     app.use('/admin', AuthMiddleware.auth, RoleMiddleware.admin, AccountMiddleware.image, adminRouter);
     
-    app.use('/products', AccountMiddleware.image, productsRouter);
+    app.use('/products', AccountMiddleware.image, AccountMiddleware.count, productsRouter);
 
     app.use('/accounts', AuthMiddleware.auth, AccountMiddleware.image, accountsRouter);
 
@@ -25,7 +26,9 @@ function route(app){
 
     app.use('/providers', AuthMiddleware.auth, AccountMiddleware.image, providerRouter);
 
-    app.use('/', AccountMiddleware.image, siteRouter);
+    app.use('/cart', AccountMiddleware.count, cartRouter);
+
+    app.use('/', AccountMiddleware.image, AccountMiddleware.count, siteRouter);
     
 }
 

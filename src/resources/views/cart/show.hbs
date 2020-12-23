@@ -1,0 +1,46 @@
+<div class="mt-4 min-height mb-5 container">
+    <h1 class="text-center mb-4">Giỏ hàng của bạn</h1>
+    <table class="table table-hover border text-center">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each cartSuccess}}
+            <tr>
+                <th>{{sum @index 1}}</th>
+                <td>
+                    <a href="/products/{{ this.slug }}">
+                        {{ this.name }}
+                    </a>
+                </td>
+                <td>{{ this.cost }} VNĐ</td>
+                <td>
+                    <a href="/cart/{{ this.id }}/down">
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <b class="mx-2">{{ this.count }}</b>
+                    <a href="/cart/{{ this.id }}/up">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="/cart/{{ this.id }}/:delete"><i class="fa fa-times text-danger"></i></a>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="4" class="text-center">
+                    Không có sản phẩm nào trong giỏ hàng.
+                    <a href="/"> Quay lại cửa hàng để tiếp tục mua sắm.</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

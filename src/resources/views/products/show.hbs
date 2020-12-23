@@ -74,16 +74,20 @@
                 <h5 class="card-title">Mô tả sản phẩm:</h5>
                 <p class="cart-text font-italic text-muted text-description">{{ product.description }}</p>
             </div>
-            <form action="/products/store" method="POST" class="mt-3 d-flex justify-content-around">
-                <button type="submit" class="btn btn-success">
-                    <i class="fa fa-cart-plus"></i>
-                    THÊM VÀO GIỎ
-                </button>
-                <button type="submit" class="btn btn-success">
-                    <i class="fa fa-shopping-cart"></i>
-                    MUA HÀNG
-                </button>
-            </form>
+            <div class="d-flex justify-content-around">
+                <form action="/cart/{{product._id}}" method="POST">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-cart-plus"></i>
+                        THÊM VÀO GIỎ
+                    </button>
+                </form>
+                <form action="" method="POST" class="text-right">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-shopping-cart"></i>
+                        MUA HÀNG
+                    </button>
+                </form>
+            </div>
         </div>
         <div class="col-3">
             <div class="col">

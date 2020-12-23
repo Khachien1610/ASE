@@ -18,11 +18,11 @@ schema
 
 class SiteController{
     // [GET] 
-    index(req, res, next){
+    async index(req, res, next){
         Product.find({})
             .then(products => {
                 res.render('home',{ 
-                    products: multipleMongooseToObject(products)
+                    products: multipleMongooseToObject(products),
                  });
             })
             .catch();
