@@ -20,5 +20,4 @@ router.delete('/:id', productController.delete); // DELETE
 router.patch('/:id/restore', productController.restore); 
 router.delete('/:id/force', productController.forceDelete);
 
-
 module.exports = router;

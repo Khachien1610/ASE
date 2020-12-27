@@ -1,5 +1,7 @@
 const Product = require('../models/Product');
 const Cart = require('../models/Cart');
+const Customer = require('../models/Customer');
+const mongoose = require('mongoose');
 
 const { mongooseToOject, multipleMongooseToObject } = require('../../ulti/mongoose');
 
@@ -59,29 +61,33 @@ class CartController{
             var cartSuccess = [];
             for(const c of cartFilter){
                 var id = c.productId;
-                var product= await Product.findOne({ _id: id });
-                if(product){
-                    product = mongooseToOject(product);
-                    var cost = product.cost, sale = product.sale;
-                    if(sale != 0){
-                        cost = cost - cost*sale/100;
+                var product;
+                if (id.match(/^[0-9a-fA-F]{24}$/)) {
+                    product = await Product.findOne({ _id: id });
+                    if(product){
+                        product = mongooseToOject(product);
+                        var cost = product.cost, sale = product.sale;
+                        if(sale != 0){
+                            cost = cost - cost*sale/100;
+                        }
+                        sum += cost*c.count;
+                        cartSuccess.push({
+                            id: product._id,
+                            sale: product.sale,
+                            cost: product.cost,
+                            slug: product.slug,
+                            name: product.name,
+                            count: c.count,
+                            afterSale: cost*c.count,
+                        });
                     }
-                    sum += cost*c.count;
-                    cartSuccess.push({
-                        id: product._id,
-                        sale: product.sale,
-                        cost: product.cost,
-                        slug: product.slug,
-                        name: product.name,
-                        count: c.count,
-                        afterSale: cost*c.count,
-                    });
                 }
             }
         }
         res.render('cart/show',{
             cartSuccess,
-            sum
+            sum,
+            userId: req.signedCookies.userId
         });
     }
 
@@ -154,9 +160,47 @@ class CartController{
         }
     }
 
-    async checkout(req, res, next){
-        res.render('cart/checkout');
+    async check(req, res, next){
+        var cart = await Cart.findOne({ sessionId: req.signedCookies.sessionId });
+        if(cart){
+            cart = mongooseToOject(cart);
+            cart.customerId = req.signedCookies.userId;
+            await Cart.updateOne({ sessionId: req.signedCookies.sessionId }, cart );
+            
+            var cartSuccess = [], sum = 0, sumPoint;
+            for(const c of cart.cart){
+                var id = c.productId;
+                if (id.match(/^[0-9a-fA-F]{24}$/)) {
+                    var product= await Product.findOne({ _id: id });
+                    if(product){
+                        product = mongooseToOject(product);
+                        var cost = product.cost, sale = product.sale;
+                        if(sale != 0){
+                            cost = cost - cost*sale/100;
+                        }
+                        sum += cost*c.count;
+                        cartSuccess.push({
+                            name: product.name,
+                            count: c.count,
+                        });
+                    }
+                }
+            }
+        }
+        var customer = res.locals.person;
+        sumPoint = sum - customer.point*1000;
+        res.render('cart/check',{
+            cartSuccess,
+            customer,
+            sum,
+            sumPoint
+        });
     }
+
+    checkPost(req, res, next){
+        res.json('Test');
+    }
+
 }
 
 module.exports = new CartController();

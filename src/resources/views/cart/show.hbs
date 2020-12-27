@@ -1,4 +1,4 @@
-<div class="mt-4 min-height mb-5 container">
+<div class="mt-4 mb-5 container">
     <h1 class="text-center mb-4">Giỏ hàng của bạn</h1>
     <table class="table table-hover border text-center">
         <thead>
@@ -56,12 +56,43 @@
     <div class="d-flex justify-content-end form-cart mt-3">
         <a href="/" class="btn form-buy">Tiếp tục mua hàng</a>
         {{#if count}}
-        <a href="/cart/checkout" class="btn form-order ml-5">Tiến hành đặt hàng</a>
+        {{#if userId }}
+        <a href="/cart/check/order" class="btn form-order ml-5">Tiến hành đặt hàng</a>
         {{else}}
-        <a href="/cart/checkout" class="btn form-order ml-5 disabled">Tiến hành đặt hàng</a>
+        <button type="button" class="btn btn-primary form-order" data-toggle="modal" data-target="#exampleModal">
+            Tiến hành đặt hàng
+        </button>
+        {{/if}}
+        {{else}}
+        <a href="/cart/check/order" class="btn form-order ml-5 disabled">Tiến hành đặt hàng</a>
         {{/if}}
     </div>
     {{#if error}}
     <p class="text-danger text-right mt-3 font-italic">{{ this.error }}</p>
     {{/if}}
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">LƯU Ý!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn phải <a href="/login" class="text-danger text-decoration-none">đăng nhập</a> trước khi đặt hàng
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">
+                    <a href="/login" class="text-white text-decoration-none">Đăng nhập</a>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

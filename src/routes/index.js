@@ -26,7 +26,7 @@ function route(app){
 
     app.use('/providers', AuthMiddleware.auth, AccountMiddleware.image, providerRouter);
 
-    app.use('/cart', AccountMiddleware.count, cartRouter);
+    app.use('/cart', AccountMiddleware.image, AccountMiddleware.count, cartRouter);
 
     app.use('/', AccountMiddleware.image, AccountMiddleware.count, siteRouter);
     

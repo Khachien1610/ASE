@@ -10,6 +10,7 @@ class ProductController{
             .then((product) =>
                 res.render('products/show', {
                     product: mongooseToOject(product),
+                    userId: req.signedCookies.userId
                 }),
             )
             .catch();
@@ -122,6 +123,7 @@ class ProductController{
             .then(() => res.redirect('back'))
             .catch();
     }
+    
 }
 
 module.exports = new ProductController();

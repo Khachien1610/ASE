@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const mongooseDelete = require('mongoose-delete');
 
 const Schema = mongoose.Schema;
 const cartSchema  = new Schema({
@@ -9,7 +8,8 @@ const cartSchema  = new Schema({
 
 const Cart = new Schema({
     sessionId: { type: String },
-    cart: [cartSchema]
+    cart: [cartSchema],
+    customerId: { type: String }
 },{
     timestamps: true,
 });
