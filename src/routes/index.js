@@ -6,11 +6,12 @@ const staffRouter = require('./staffs');
 const customerRouter = require('./customer');
 const providerRouter = require('./provider');
 const cartRouter = require('./cart');
+const orderRouter = require('./order');
+
 
 const AuthMiddleware = require('../app/middlewares/AuthMiddleware');
 const RoleMiddleware = require('../app/middlewares/RoleMiddleware');
 const AccountMiddleware = require('../app/middlewares/AccountMiddleware');
-
 
 function route(app){
 
@@ -27,6 +28,8 @@ function route(app){
     app.use('/providers', AuthMiddleware.auth, AccountMiddleware.image, providerRouter);
 
     app.use('/cart', AccountMiddleware.image, AccountMiddleware.count, cartRouter);
+
+    app.use('/order', AccountMiddleware.image, AccountMiddleware.count, orderRouter);
 
     app.use('/', AccountMiddleware.image, AccountMiddleware.count, siteRouter);
     

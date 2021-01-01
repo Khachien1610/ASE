@@ -3,6 +3,7 @@ const Customer = require('../models/Customer');
 const Cart = require('../models/Cart');
 
 const { mongooseToOject } = require('../../ulti/mongoose');
+const { db } = require('../models/Cart');
 
 class AccountMiddleware{
 
@@ -24,8 +25,7 @@ class AccountMiddleware{
     }
 
     async count(req, res, next){
-        var cart =  await Cart.findOne({ sessionId: req.signedCookies.sessionId })
-            .then( cart => cart )
+        var cart =  await Cart.findOne({ sessionId: req.signedCookies.sessionId });
         if(cart){
             cart = mongooseToOject(cart);
             var count = 0;
@@ -36,6 +36,23 @@ class AccountMiddleware{
             }
             res.locals.count = count;
         }
+        next();
+    }
+
+    async cart(req, res, next){
+        // if(res.locals.person){
+        //     var customerId = res.locals.person._id;
+        //     var cart = await Cart.findOne({ customerId })
+        //     if(!cart){
+        //         cart = {
+        //             sessionId: req.signedCookies.sessionId,
+        //             cart: [],
+        //             customerId
+        //         }
+        //     }
+        //     cart = await new Cart(cart);
+        //     cart.save();
+        // }
         next();
     }
 }

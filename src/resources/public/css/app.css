@@ -213,3 +213,8 @@ footer a:hover{
 .form-cart .btn.focus, .btn:focus{
     box-shadow: none;
 }
+
+.custom-point{
+    width: 80px;
+    position: relative;
+}

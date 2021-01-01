@@ -5,6 +5,9 @@ const Account = require('../models/Account');
 const Staff = require('../models/Staff');
 const Customer = require('../models/Customer');
 const Provider = require('../models/Provider');
+const Order = require('../models/Order');
+const Bill = require('../models/Bill');
+
 const { multipleMongooseToObject, mongooseToOject } = require('../../ulti/mongoose');
 
 var schema = new passwordValidator();
@@ -102,7 +105,6 @@ class AdminController{
 
     // [GET] /admin/stored/customers
     storedCustomers(req, res, next){
-        // Customer.find({ delete: false})
         Customer.find({ delete: false})
             .then( (customers) => {
                 res.render('admin/stored-customers', {
@@ -141,6 +143,34 @@ class AdminController{
                 });
             })
             .catch()
+    }
+
+    // [Get] /admin/stored/orders
+    storedOrders(req, res, next){
+        Order.find({ process: false})
+            .then( orders => {
+                orders = multipleMongooseToObject(orders);
+                for(var i = 0; i < orders.length; i++){
+                    orders[i].createdAt = orders[i].createdAt.toLocaleString('en-GB', { hour12: false });
+                }
+                res.render('admin/stored-orders',{
+                    orders
+                })
+            })
+    }
+
+    // [Get] /admin/stored/orders
+    storedBills(req, res, next){
+        Bill.find({})
+            .then( bills => {
+                bills = multipleMongooseToObject(bills);
+                for(var i = 0; i < bills.length; i++){
+                    bills[i].createdAt = bills[i].createdAt.toLocaleString('en-GB', { hour12: false });
+                }
+                res.render('admin/stored-bills',{
+                    bills
+                })
+            })
     }
 
 }

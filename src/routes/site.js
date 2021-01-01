@@ -5,6 +5,7 @@ const router = express.Router();
 const siteController = require('../app/controllers/SiteController');
 const AuthMiddleware = require('../app/middlewares/AuthMiddleware');
 const RoleMiddleware = require('../app/middlewares/RoleMiddleware');
+const AccountMiddleware = require('../app/middlewares/AccountMiddleware');
 
 router.get('/register', AuthMiddleware.authL, RoleMiddleware.role, siteController.register);
 
@@ -18,6 +19,7 @@ router.get('/logout', siteController.logout);
 
 router.get('/infoaccount', AuthMiddleware.auth, RoleMiddleware.roleL, siteController.infoAccount);
 
+router.get('/order', AuthMiddleware.auth, RoleMiddleware.roleL, siteController.order);
 
 router.get('/', AuthMiddleware.authL, RoleMiddleware.roleL, siteController.index);
 

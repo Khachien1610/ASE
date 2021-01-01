@@ -4,6 +4,7 @@ const passwordValidator = require('password-validator');
 const Product = require('../models/Product');
 const Account = require('../models/Account');
 const Customer = require('../models/Customer');
+const Order = require('../models/Order');
 
 
 const { multipleMongooseToObject, mongooseToOject } = require('../../ulti/mongoose');
@@ -194,7 +195,20 @@ class SiteController{
             })
             .catch()
     }
-    
+
+    // [GET] /order
+    async order(req, res, next){
+        var order = await Order.find({});
+        order = multipleMongooseToObject(order);
+        for(var i = 0; i < order.length; i++){
+            order[i].createdAt = order[i].createdAt.toLocaleString('en-GB', { hour12: false });
+            order[i].updatedAt = order[i].updatedAt.toLocaleString('en-GB', { hour12: false });
+        }
+        res.render('order/store', {
+            order
+        });
+    }
+
 }
 
 module.exports = new SiteController();

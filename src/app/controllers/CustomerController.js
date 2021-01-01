@@ -1,5 +1,7 @@
 const Customer = require('../models/Customer');
-const { mongooseToOject } = require('../../ulti/mongoose');
+const Order = require('../models/Order');
+
+const { mongooseToOject, multipleMongooseToObject } = require('../../ulti/mongoose');
 
 
 class CustomerController{
@@ -23,6 +25,19 @@ class CustomerController{
         Customer.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/admin/stored/customers'))
             .catch();
+    }
+
+    // [GET] /customers/orders
+    async order(req, res, next){
+        var order = await Order.find({});
+        order = multipleMongooseToObject(order);
+        for(var i = 0; i < order.length; i++){
+            order[i].createdAt = order[i].createdAt.toLocaleString('en-GB', { hour12: false });
+            order[i].updatedAt = order[i].updatedAt.toLocaleString('en-GB', { hour12: false });
+        }
+        res.render('customers/order', {
+            order
+        });
     }
 }
 module.exports = new CustomerController();

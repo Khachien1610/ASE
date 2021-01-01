@@ -1,0 +1,33 @@
+<div class="mt-4 min-height">
+    <div class="mb-4 d-flex justify-content-between align-items-center pr-5">
+        <div class="d-flex align-items-center">
+            <h3>Danh sách đơn hàng</h3>
+        </div>
+    </div>
+    <table class="table table-hover border text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th>Mã đơn hàng</th>
+                <th>Mã khách hàng</th>
+                <th>Mã nhân viên</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each bills}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td><a href="#">{{ this._id }}</a></td>
+                <td><a href="#">{{ this.customerId }}</a></td>
+                <td><a href="#">{{ this.staffId }}</a></td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="" class="text-center">
+                    Không có hóa đơn nào.
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

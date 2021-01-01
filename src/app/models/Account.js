@@ -14,6 +14,7 @@ const Account = new Schema({
         require: true
     },
     role: { type: String },
+    session: { type: String }
 },{
     timestamps: true,
 });

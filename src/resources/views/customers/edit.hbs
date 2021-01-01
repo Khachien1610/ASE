@@ -1,5 +1,6 @@
 <div class="mt-4 product__edit min-height">
-    <h4 class="ml-3 d-inline py-2 px-3 bg-primary text-white">Thông tin của {{customer.name}}</h4>
+    <h4 class="ml-3 d-inline py-2 px-3 bg-primary text-white mr-5">Thông tin của {{customer.name}}</h4>
+    <a href="/customers/orders" class="ml-2">Danh sách đơn hàng</a>
     <form action="/customers/{{customer._id}}?_method=PUT" method="POST" class="col-3 mt-4" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Tên:</label>

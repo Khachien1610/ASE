@@ -41,13 +41,16 @@ class AuthMiddleware{
         }
 
         // Không có tài khoản trong DB
-        var account = await Account.findOne({ _id: req.signedCookies.userId })
+        var id = req.signedCookies.userId;
+        if(id.match(/^[0-9a-fA-F]{24}$/)){
+            var account = await Account.findOne({ _id: id })
             .then(account => account);
+        }
         if(!account){
             next();
             return;
         }
-
+        
         // Có tài khoản
         account = mongooseToOject(account);
         res.locals.username = account.username;

@@ -1,0 +1,47 @@
+<div class="mt-4 min-height">
+    <div class="mb-4 d-flex justify-content-between align-items-center pr-5">
+        <div class="d-flex align-items-center">
+            <h3>Danh sách đơn hàng</h3>
+        </div>
+    </div>
+    <table class="table table-hover border text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th>Mã đơn hàng</th>
+                <th>Tạm tính</th>
+                <th>Điểm tích lũy</th>
+                <th>Tổng tiền</th>
+                <th>Hình thức giao hàng</th>
+                <th>Ngày đặt</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each order}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>
+                    <a href="/order/{{this._id}}/view">{{ this._id }}</a>
+                </td>
+                <td>{{ this.total }}</td>
+                <td>{{ this.point }}</td>
+                <td>{{ this.remainder }}</td>
+                <td>{{ this.payment }}</td>
+                <td>{{ this.createdAt }}</td>
+                {{#if this.order}}
+                    <th>Đã xử lý</th>
+                {{else}}
+                    <th>Chưa xử lý</th>
+                {{/if}}
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="9" class="text-center">
+                    Không có đơn hàng nào.
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
