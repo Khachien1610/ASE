@@ -1,5 +1,19 @@
 <div class="mt-4 mb-5 container min-height">
     <h1 class="text-center mb-4">Chi tiết đơn hàng</h1>
+    <div class="my-4">
+        <h5>
+            <span>Tên khách hàng:</span>
+            <span class="ml-3 font-italic text-muted">{{ customer.name }}</span>
+        </h5>
+        <h5>
+            <span>Số điện thoại:</span>
+            <span class="ml-3 font-italic text-muted">{{ customer.phone }}</span>
+        </h5>
+        <h5>
+            <span>Địa chỉ:</span>
+            <span class="ml-3 font-italic text-muted">{{ customer.address }}</span>
+        </h5>
+    </div>
     <table class="table table-hover border text-center">
         <thead>
             <tr>
@@ -25,13 +39,28 @@
         </tbody>
     </table>
     {{#if sum}}
-    <h5 class="text-right">
-        <span class="text-muted">Tổng tiền:</span>
-        <span class="ml-3 text-danger">{{ this.sum }} VNĐ</span>
-    </h5>
+    <div class="ml-auto w-50">
+        <h5 class="d-flex justify-content-between">
+            <span class="text-muted">Tổng tiền tạm tính:</span>
+            <span class="ml-3 text-danger">{{ this.sum }} VNĐ</span>
+        </h5>
+        <h5 class="d-flex justify-content-between">
+            <span class="text-muted">Điểm tích lũy dùng:</span>
+            <span class="ml-3 text-danger">{{ this.point }}</span>
+        </h5>
+        <h5 class="d-flex justify-content-between">
+            <span class="text-muted">Phí vận chuyển:</span>
+            <span class="ml-3 text-danger">{{ this.ship }} VNĐ</span>
+        </h5>
+        <h5 class="d-flex justify-content-between">
+            <span class="text-muted">Tổng tiền:</span>
+            <span class="ml-3 text-danger">{{ this.remainder }} VNĐ</span>
+        </h5>
+    </div>
     {{/if}}
-    {{!-- <p class="text-right mt-3"><a href="/order/:{{ this.id }}/done" class="btn btn-success">Xử lý đơn hàng</a></p> --}}
-    <form action="/order/{{ this.id }}/done" method="POST">
+    {{!-- <p class="text-right mt-3"><a href="/order/:{{ this.id }}/done" class="btn btn-success">Xử lý đơn hàng</a></p>
+    --}}
+    <form action="/order/{{ this.id }}/done" method="POST" class="text-right mt-4">
         <button class="btn btn-success">Xử lý đơn hàng</button>
     </form>
-</div>  
+</div>

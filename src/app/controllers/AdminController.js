@@ -7,8 +7,10 @@ const Customer = require('../models/Customer');
 const Provider = require('../models/Provider');
 const Order = require('../models/Order');
 const Bill = require('../models/Bill');
+const Student = require('../models/Student');
 
 const { multipleMongooseToObject, mongooseToOject } = require('../../ulti/mongoose');
+const e = require('express');
 
 var schema = new passwordValidator();
 schema 
@@ -145,7 +147,7 @@ class AdminController{
             .catch()
     }
 
-    // [Get] /admin/stored/orders
+    // [GET] /admin/stored/orders
     storedOrders(req, res, next){
         Order.find({ process: false})
             .then( orders => {
@@ -159,16 +161,38 @@ class AdminController{
             })
     }
 
-    // [Get] /admin/stored/orders
-    storedBills(req, res, next){
-        Bill.find({})
-            .then( bills => {
+    // [GET] /admin/stored/orders
+    async storedBills(req, res, next){
+        await Bill.find({})
+            .then( async (bills) => {
                 bills = multipleMongooseToObject(bills);
                 for(var i = 0; i < bills.length; i++){
                     bills[i].createdAt = bills[i].createdAt.toLocaleString('en-GB', { hour12: false });
                 }
+                var customers = [];
+                var staffs = [];
+                for(const bill of bills){
+                    var id = bill.customerId;
+                    if (id.match(/^[0-9a-fA-F]{24}$/)){
+                        var customer = await Customer.findOne({ _id : id });
+                        if(customer) customer = mongooseToOject(customer);
+                        bill.customerName = customer.name;
+                        bill.customerId = customer._id;
+                    }
+                }
+                for(const bill of bills){
+                    var id = bill.staffId;
+                    if (id.match(/^[0-9a-fA-F]{24}$/)){
+                        var staff = await Staff.findOne({ idAccount: id });
+                        if(staff) {
+                            staff = mongooseToOject(staff);
+                            bill.staffName = staff.name;
+                            bill.staffId = staff._id;
+                        }
+                    }
+                }
                 res.render('admin/stored-bills',{
-                    bills
+                    bills,
                 })
             })
     }

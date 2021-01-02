@@ -218,3 +218,10 @@ footer a:hover{
     width: 80px;
     position: relative;
 }
+
+
+@media print{
+    header, footer, .ul-none, .btn-none{
+        display: none;
+    }
+}

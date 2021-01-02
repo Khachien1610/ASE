@@ -13,4 +13,6 @@ router.post('/create', staffController.store);
 router.get('/:id/edit', staffController.edit); // UPDATE
 router.put('/:id', upload.single('image'), staffController.update);
 
+router.get('/orders/:id', staffController.order);
+
 module.exports = router;

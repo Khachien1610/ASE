@@ -3,7 +3,7 @@
     <img src="https://bucket.nhanh.vn/store/4902/store_1529314462_290.jpg" alt=""
       style="max-width:100%; height: auto; max-height: 50px;">
   </a>
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav ml-auto ul-none">
     <li class="nav-item dropdown">
       {{#if username}}
       <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown">
@@ -11,7 +11,8 @@
         <img src="../../{{person.image}}" alt="IMAGE ERROR" class="avatar__user">
         <span>{{username}}</span>
         {{else}}
-        <img src="https://res.cloudinary.com/dtuy8d4mx/image/upload/v1608045659/default-avatar_ykikk8.png" alt="" class="avatar__user">
+        <img src="https://res.cloudinary.com/dtuy8d4mx/image/upload/v1608045659/default-avatar_ykikk8.png" alt=""
+          class="avatar__user">
         <span>{{username}}</span>
         {{/if}}
       </a>
@@ -20,13 +21,14 @@
       <a href="/register" class="btn btn-outline-primary">Đăng ký</a>
       {{/if}}
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      {{#unless admin}}
+        {{#unless admin}}
         <a class="dropdown-item" href="/infoaccount">Thông tin tài khoản</a>
         <a class="dropdown-item" href="/order">Đơn hàng đã đặt</a>
-      {{/unless}}
+        {{/unless}}
         <a class="dropdown-item" href="/logout">Đăng xuất</a>
       </div>
     </li>
+  </ul>
 </div>
 
 {{#if admin}}
@@ -57,8 +59,8 @@
     ({{count}})
     {{/if}}
   </a>
-  {{#if person}}  
-    <p class="m-0 text-primary">Điểm tích lũy của bạn: <span class="font-weight-bold">{{ person.point }}</span></p>
+  {{#if person}}
+  <p class="m-0 text-primary">Điểm tích lũy của bạn: <span class="font-weight-bold">{{ person.point }}</span></p>
   {{/if}}
 </nav>
 {{/if}}

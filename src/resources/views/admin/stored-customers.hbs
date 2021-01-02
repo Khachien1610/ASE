@@ -14,6 +14,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Địa chỉ</th>
                 <th scope="col">Điểm tích lũy</th>
+                <th scope="col">Đơn hàng</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,9 @@
                 <td>{{this.email}}</td>
                 <td>{{this.address}}</td>
                 <td>{{this.point}}</td>
+                <td>
+                    <a href="/customers/orders/{{ this._id }}"><i class="fa fa-shopping-basket"></i></a>
+                </td>
             </tr>
             {{else}}
             <tr>

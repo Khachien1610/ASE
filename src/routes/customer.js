@@ -9,6 +9,6 @@ const customerController = require('../app/controllers/CustomerController');
 router.get('/:id/edit', customerController.edit); // UPDATE
 router.put('/:id',upload.single('image'), customerController.update);
 
-router.get('/orders', customerController.order);
+router.get('/orders/:id', customerController.order);
 
 module.exports = router;

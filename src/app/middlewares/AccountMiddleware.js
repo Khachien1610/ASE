@@ -38,23 +38,7 @@ class AccountMiddleware{
         }
         next();
     }
-
-    async cart(req, res, next){
-        // if(res.locals.person){
-        //     var customerId = res.locals.person._id;
-        //     var cart = await Cart.findOne({ customerId })
-        //     if(!cart){
-        //         cart = {
-        //             sessionId: req.signedCookies.sessionId,
-        //             cart: [],
-        //             customerId
-        //         }
-        //     }
-        //     cart = await new Cart(cart);
-        //     cart.save();
-        // }
-        next();
-    }
+    
 }
 
 module.exports = new AccountMiddleware();

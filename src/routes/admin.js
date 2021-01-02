@@ -16,7 +16,7 @@ router.get('/stored/customers', adminController.storedCustomers); // List custom
 router.get('/stored/providers', adminController.storedProviders); // List provider
 router.get('/trash/providers', adminController.trashProviders); // List provider delete
 
-router.get('/stored/orders', adminController.storedOrders);
+router.get('/stored/orders', adminController.storedOrders); 
 
 router.get('/stored/bills', adminController.storedBills);
 

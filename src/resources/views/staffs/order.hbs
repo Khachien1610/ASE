@@ -1,30 +1,30 @@
 <div class="mt-4 min-height">
     <div class="mb-4 d-flex justify-content-between align-items-center pr-5">
         <div class="d-flex align-items-center">
-            <h3>Danh sách đơn hàng</h3>
+            <h3>Danh sách đơn hàng đã xử lý</h3>
         </div>
     </div>
     <table class="table table-hover border text-center">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th>Mã đơn hàng</th>
-                <th>Mã khách hàng</th>
-                <th>Mã nhân viên</th>
+                <th scope="col">Mã đơn hàng</th>
+                <th scope="col">Thời gian xử lý</th>
             </tr>
         </thead>
         <tbody>
             {{#each bills}}
             <tr>
                 <th scope="row">{{sum @index 1}}</th>
-                <td><a href="/bill/{{ this.orderId }}/view">{{ this._id }}</a></td>
-                <td><a href="/customers/orders/{{ this.customerId }}">{{ this.customerName }} ({{ this.customerId }})</a></td>
-                <td><a href="/staffs/orders/{{ this.staffId }}">{{ this.staffName }} ({{ this.staffId }})</a></td>
+                <td>
+                    <a href="/order/{{ this.orderId }}/view">{{ this._id }}</a>
+                </td>
+                <td>{{ this.createdAt }}</td>
             </tr>
             {{else}}
             <tr>
-                <td colspan="4" class="text-center">
-                    Không có hóa đơn nào.
+                <td colspan="9" class="text-center">
+                    Không có đơn hàng nào.
                 </td>
             </tr>
             {{/each}}

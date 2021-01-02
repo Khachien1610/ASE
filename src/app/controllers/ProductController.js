@@ -18,6 +18,7 @@ class ProductController{
 
     // [GET] /products/create
     create(req, res, next) {
+        // Hiển thị ra phần view của trang /products/create
         Provider.find({})
             .then( providers => {
                 res.render('products/create',{
@@ -99,8 +100,6 @@ class ProductController{
         Product.updateOne({ _id: req.params.id }, req.body)
             .then( () => res.redirect('/admin/stored/products') )
             .catch();
-
-       
     }
 
     // [DELETE] /products/:id

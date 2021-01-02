@@ -210,11 +210,21 @@ class CartController{
                 }
             }
         }
+        var ship;
+        if(sum < 1000000){
+            ship = 50000;
+        }else{
+            ship = 0;
+        }
+        var remainder;
+        remainder = sum + ship;
         var customer = res.locals.person;
         res.render('cart/check',{
             cartSuccess,
             customer,
             sum,
+            ship,
+            remainder
         });
     }
 
@@ -259,6 +269,14 @@ class CartController{
                 }
             }
         }
+        var ship;
+        if(sum < 1000000){
+            ship = 50000;
+        }else{
+            ship = 0;
+        }
+        sum += ship;
+        check.ship = ship;
         check.cart = cartSuccess;
         check.total = sum;
         check.process = false;
@@ -285,6 +303,7 @@ class CartController{
                 pass: 'testnodemailer000',
             }
         });
+
         var content = '';
         content += `
             <h4>Đơn hàng của bạn đã được đặt thành công, vui lòng chờ nhân viên xác nhận!</h4>

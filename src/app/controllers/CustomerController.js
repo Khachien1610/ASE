@@ -29,7 +29,7 @@ class CustomerController{
 
     // [GET] /customers/orders
     async order(req, res, next){
-        var order = await Order.find({});
+        var order = await Order.find({ idCustomer: req.params.id});
         order = multipleMongooseToObject(order);
         for(var i = 0; i < order.length; i++){
             order[i].createdAt = order[i].createdAt.toLocaleString('en-GB', { hour12: false });

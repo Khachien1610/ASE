@@ -18,6 +18,7 @@ const Order = new Schema({
     remainder: { type: Number },
     process: { type: Boolean },
     idCustomer: { type: String },
+    ship: { type: Number },
 },{
   timestamps: true,
 });

@@ -3,7 +3,10 @@ const passwordValidator = require('password-validator');
 
 const Account = require('../models/Account');
 const Staff = require('../models/Staff');
-const { mongooseToOject } = require('../../ulti/mongoose');
+const Bill = require('../models/Bill');
+const Customer = require('../models/Customer');
+
+const { mongooseToOject, multipleMongooseToObject } = require('../../ulti/mongoose');
 
 var schema = new passwordValidator();
 schema 
@@ -157,6 +160,24 @@ class StaffController{
         Staff.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/admin/stored/staffs'))
             .catch();
+    }
+
+    async order(req, res, next){
+        var staff = await Staff.findOne({ _id: req.params.id });
+        if(staff){
+            var staffId = staff.idAccount;
+            var bills = await Bill.find({ staffId: staffId });
+            if(bills){
+                bills = multipleMongooseToObject(bills);
+                for(var i = 0; i < bills.length; i++){
+                    bills[i].createdAt = bills[i].createdAt.toLocaleString('en-GB', { hour12: false });
+                    bills[i].updatedAt = bills[i].updatedAt.toLocaleString('en-GB', { hour12: false });
+                }
+            }
+        }
+        res.render('staffs/order',{
+            bills
+        }); 
     }
 }
 module.exports = new StaffController();

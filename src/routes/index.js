@@ -7,6 +7,7 @@ const customerRouter = require('./customer');
 const providerRouter = require('./provider');
 const cartRouter = require('./cart');
 const orderRouter = require('./order');
+const billRouter = require('./bill');
 
 
 const AuthMiddleware = require('../app/middlewares/AuthMiddleware');
@@ -30,6 +31,8 @@ function route(app){
     app.use('/cart', AccountMiddleware.image, AccountMiddleware.count, cartRouter);
 
     app.use('/order', AccountMiddleware.image, AccountMiddleware.count, orderRouter);
+
+    app.use('/bill', AccountMiddleware.image, AccountMiddleware.count, billRouter);
 
     app.use('/', AccountMiddleware.image, AccountMiddleware.count, siteRouter);
     
