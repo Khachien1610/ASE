@@ -16,7 +16,9 @@ const AccountMiddleware = require('../app/middlewares/AccountMiddleware');
 
 function route(app){
 
-    app.use('/admin', AuthMiddleware.auth, RoleMiddleware.admin, AccountMiddleware.image, adminRouter);
+    // app.use('/admin', AuthMiddleware.auth, RoleMiddleware.admin, AccountMiddleware.image, adminRouter);
+
+    app.use('/admin', adminRouter);
     
     app.use('/products', AccountMiddleware.image, AccountMiddleware.count, productsRouter);
 

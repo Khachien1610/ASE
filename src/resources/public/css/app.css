@@ -26,8 +26,7 @@
 
 .product__create h4, 
 .product__edit h4{
-    text-transform: uppercase;
-    border-bottom: 3px solid black;
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
 }
 
 .img-navtabs .img-tab{
@@ -58,7 +57,7 @@
 }
 
 .product-contact {
-    background: #f3f2f2;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     padding: 10px 15px;
     text-align: center;
     border-radius: 5px;
@@ -144,6 +143,7 @@ footer a:hover{
 .card-info{
     min-height: 178px;
     position: relative;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
 .card-info .card-cart{
@@ -166,7 +166,6 @@ footer a:hover{
 }
 
 .header-cart{
-    color: #28a745;
     margin-right: 50px;
 }
 
@@ -219,9 +218,40 @@ footer a:hover{
     position: relative;
 }
 
-
 @media print{
     header, footer, .ul-none, .btn-none{
         display: none;
     }
+}
+
+/* THEM */
+
+
+.btn-grad {
+    background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%)
+}
+.btn-grad {
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 5px;
+   display: block;
+   outline: none;
+   border: none;
+   font-size: 15px;
+   padding: 9px 13px;
+}
+.btn-grad:hover {
+   background-position: right center;
+   color: #fff;
+   text-decoration: none;
+}
+
+
+
+.navbar-admin{
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
 }

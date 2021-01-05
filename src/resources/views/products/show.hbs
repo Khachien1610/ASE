@@ -76,7 +76,7 @@
             </div>
             <div class="d-flex">
                 <form action="/cart/{{product._id}}" method="POST">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-primary">
                         <i class="fa fa-cart-plus"></i>
                         THÊM VÀO GIỎ
                     </button>
@@ -84,18 +84,18 @@
                 <div class="product-order text-right">
                     {{#if count}}
                         {{#if userId}}
-                            <a href="/cart/checkout" class="btn btn-success">
+                            <a href="/cart/checkout" class="btn btn-primary">
                                 <i class="fa fa-shopping-cart"></i>
                                 ĐẶT HÀNG
                             </a>
                         {{else}}
-                            <button type="button" class="btn btn-success form-order" data-toggle="modal"
+                            <button type="button" class="btn btn-primary form-order" data-toggle="modal"
                                 data-target="#exampleModal">
                                 Tiến hành đặt hàng
                             </button>
                         {{/if}}
                     {{else}}
-                        <a href="/cart/checkout" class="btn btn-success disabled">
+                        <a href="/cart/checkout" class="btn btn-primary disabled">
                             <i class="fa fa-shopping-cart"></i>
                             ĐẶT HÀNG
                         </a>

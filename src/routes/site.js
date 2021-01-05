@@ -21,6 +21,9 @@ router.get('/infoaccount', AuthMiddleware.auth, RoleMiddleware.roleL, siteContro
 
 router.get('/order', AuthMiddleware.auth, RoleMiddleware.roleL, siteController.order);
 
+router.get('/search', siteController.search);
+
 router.get('/', AuthMiddleware.authL, RoleMiddleware.roleL, siteController.index);
+
 
 module.exports = router;

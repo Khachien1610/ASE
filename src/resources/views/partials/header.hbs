@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between px-5 my-3 align-items-center">
+<header class="d-flex justify-content-between px-5 py-3 align-items-center">
   <a href="/">
     <img src="https://bucket.nhanh.vn/store/4902/store_1529314462_290.jpg" alt=""
       style="max-width:100%; height: auto; max-height: 50px;">
@@ -29,10 +29,10 @@
       </div>
     </li>
   </ul>
-</div>
+</header>
 
 {{#if admin}}
-<nav class="navbar navbar-admin navbar-expand-lg navbar-primary bg-primary px-5 py-0">
+<nav class="navbar navbar-admin navbar-expand-lg navbar-primary navbar-admin px-5 py-0">
   <a class="navbar-brand navbar__item" href="/admin/stored/products">Quản lý sản phẩm</a>
   <a class="navbar-brand navbar__item" href="/admin/stored/accounts">Quản lý tài khoản</a>
   <a class="navbar-brand navbar__item" href="/admin/stored/staffs">Quản lý nhân viên</a>
@@ -48,9 +48,9 @@
   <a class="navbar-brand navbar__item" href="">CHÂN VÁY</a>
   <a class="navbar-brand navbar__item" href="">VÁY</a>
   <a class="navbar-brand navbar__item" href="">PHỤ KIỆN</a>
-  <form class="form-inline ml-auto header-seacrh">
-    <input class="form-control mr-sm-2" type="search" placeholder="Thông tin cần tìm kiếm ..." aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  <form class="form-inline ml-auto header-seacrh" method="GET" action="/search">
+    <input class="form-control mr-sm-2" type="text" placeholder="Thông tin cần tìm kiếm ..." name="q">
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
   </form>
   <a href="/cart" class="header-cart">
     <i class="fa fa-shopping-cart"></i>

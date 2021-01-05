@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const passwordValidator = require('password-validator');
+const _ = require('lodash');
 
 const Product = require('../models/Product');
 const Account = require('../models/Account');
@@ -207,6 +208,19 @@ class SiteController{
         res.render('order/store', {
             order
         });
+    }
+
+    // [GET] /search
+    async search(req, res ,next){
+        var query = _.lowerCase(req.query.q);
+        var product = await Product.find({});
+        product = multipleMongooseToObject(product);
+        var products = product.filter(function(p){
+            return _.includes(_.lowerCase(p.name), query);
+        })
+        res.render('home',{
+            products
+        })
     }
 
 }
